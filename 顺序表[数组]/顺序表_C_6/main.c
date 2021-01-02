@@ -5,12 +5,20 @@
 */
 #include "main.h"
 #include "sqlist.h"
-#include "elem.h"
 
 int main (int argc, char *argv[])
 {
+    int i;
     PSQLIST L;
     InitList(L);
+
+    for (i=0; i<10; i++)
+    {
+        if(ListInsert(L, 1, i)){
+            printf("²åÈë³É¹¦£¡\n");
+        }
+
+    }
     
     return 0;
 }

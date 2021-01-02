@@ -105,5 +105,27 @@ Status NextElem(PSQLIST L,ElemType cur_e,ElemType *next_e){
 }
 
 Status ListInsert(PSQLIST L,int i,ElemType e){
-    
+    //判断i是否合法
+    if (i<1 || i > L->length+1){
+        printf("您将要插入的位置不存在！\n");
+        return ERROR;
+    }
+    if (L->length == L->listsize){
+        ElemType* newbase = (ElemType*) realloc(L->elem, (L->listsize + LIST_INCREMENT)*sizeof(ElemType));
+        if (NULL == newbase){
+            printf("增扩线性表的存储容量失败！\n");
+            exit(-1);
+        }
+        L->elem = newbase;
+        L->listsize += LIST_INCREMENT;
+    }
+    ElemType *p = L->elem + i - 1;
+    ElemType *q;
+
+    for (q = L->elem + L->length; p<q; q--){
+        *(q+1) = *q;
+    } 
+        *q = e;
+        L->length++;
+        return OK;
 }

@@ -246,8 +246,7 @@ void printf1(ElemType* e)//输出形式
 }
 status ListInsert(struct SqList* L, int i, ElemType e)
 {
-	ElemType* p = L->elem+ L->length -1;
-	ElemType* q = L->elem + i - 1;
+	
 	//判断I值是否合法
 	if (i < 1 || i > L->length+1 )
 	{
@@ -267,6 +266,8 @@ status ListInsert(struct SqList* L, int i, ElemType e)
 			L->elem = newbase;
 			L->listsize = L->listsize + LIST_INCREMENT;
 		}//添加内存成功
+		ElemType* p = L->elem+ L->length -1;
+		ElemType* q = L->elem + i - 1;
 		for (; p >= q; --p)
 		{
 			*(p + 1) = *p;

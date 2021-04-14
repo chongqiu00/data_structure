@@ -17,7 +17,6 @@ int main (int argc, char *argv[])
         if(ListInsert(L, 1, i)){
             printf("≤Â»Î≥…π¶£°\n");
         }
-
     }
     
     return 0;
